@@ -289,38 +289,109 @@ get_header();
         <h2>Our Projects</h2>
 
         <p class="section-intro">
-            Discover our creativity and technology projects.
-            We aim to develop innovative solutions through
-            collaboration and continuous learning.
+            Explore the systems and digital solutions we are developing
+            through teamwork, creativity, and continuous learning.
         </p>
 
-        <div class="project-grid">
+        <div class="project-grid project-grid-three">
 
-            <article class="project-card">
-                <span class="project-icon"><i class="fas fa-laptop-code"></i></span>
-                <h3>Tech Titans Portfolio Website</h3>
-                <p>
-                    Our group portfolio, built as a custom WordPress theme,
-                    version-controlled on GitHub and hosted on Hostinger.
-                </p>
-                <div class="tech-tags">
-                    <span>WordPress</span>
-                    <span>PHP</span>
-                    <span>HTML &amp; CSS</span>
-                    <span>JavaScript</span>
-                    <span>GitHub</span>
+            <!-- PROJECT 1: TEMU -->
+            <article class="project-card project-card-featured">
+                <a class="project-image-link"
+                   href="https://ivory-gerbil-502781.hostingersite.com/login"
+                   target="_blank" rel="noopener noreferrer"
+                   aria-label="Open the TEMU live development website">
+                    <img
+                        class="project-image"
+                        src="<?php echo esc_url( $images . 'temu-login-preview.png' ); ?>"
+                        alt="Preview of the TEMU Traffic Enforcement and Management Unit sign-in page"
+                        loading="lazy"
+                    >
+                </a>
+
+                <div class="project-card-content">
+                    <span class="project-status project-status-progress">In Development</span>
+                    <h3>TEMU — Traffic Enforcement and Management Unit</h3>
+                    <p>
+                        Our BSIT capstone project: a web-based system for the
+                        Traffic Enforcement and Management Unit of El Salvador City.
+                        The system is currently undergoing development and deployment.
+                    </p>
+
+                    <div class="tech-tags">
+                        <span>Capstone Project</span>
+                        <span>Web Development</span>
+                        <span>System Development</span>
+                    </div>
+
+                    <a class="project-link"
+                       href="https://ivory-gerbil-502781.hostingersite.com/login"
+                       target="_blank" rel="noopener noreferrer">
+                        Visit Live Development Site <i class="fas fa-arrow-up-right-from-square"></i>
+                    </a>
                 </div>
             </article>
 
-            <article class="project-card project-card-soon">
-                <span class="project-icon"><i class="fas fa-rocket"></i></span>
-                <h3>More Coming Soon</h3>
-                <p>
-                    We are always learning and building. New projects
-                    from our team will be added here.
-                </p>
-                <div class="tech-tags">
-                    <span>Stay tuned</span>
+            <!-- PROJECT 2: SMART PECHAY IOT -->
+            <article class="project-card project-card-featured">
+                <div class="project-image-link project-image-static">
+                    <img
+                        class="project-image project-image-iot"
+                        src="<?php echo esc_url( $images . 'smart-pechay-system.png' ); ?>"
+                        alt="Smart Pechay pest detection and automatic pesticide spraying system infographic"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="project-card-content">
+                    <span class="project-status project-status-progress">Ongoing Development</span>
+                    <h3>Smart Pechay Pest Detection and Automatic Pesticide Spraying System</h3>
+                    <p>
+                        An ESP32-based IoT project that monitors possible pest activity
+                        through motion detection. It uses an LCD for status updates,
+                        an LED and buzzer for alerts, and a relay-controlled pump
+                        to spray pesticide for a set duration.
+                    </p>
+
+                    <div class="tech-tags">
+                        <span>ESP32</span>
+                        <span>PIR Sensor</span>
+                        <span>LCD</span>
+                        <span>Relay Module</span>
+                        <span>12V Pump</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- PROJECT 3: TECH TITANS PORTFOLIO -->
+            <article class="project-card project-card-featured project-card-portfolio">
+                <div class="project-visual-placeholder" aria-hidden="true">
+                    <i class="fas fa-laptop-code"></i>
+                    <span>TECH TITANS</span>
+                    <small>GROUP PORTFOLIO WEBSITE</small>
+                </div>
+
+                <div class="project-card-content">
+                    <span class="project-status project-status-active">Team Portfolio</span>
+                    <h3>Tech Titans Portfolio Website</h3>
+                    <p>
+                        Our custom-built group portfolio website, created to introduce
+                        our team, present our skills, and showcase our projects.
+                        It uses a custom WordPress theme and is managed with GitHub.
+                    </p>
+
+                    <div class="tech-tags">
+                        <span>WordPress</span>
+                        <span>PHP</span>
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                        <span>GitHub</span>
+                    </div>
+
+                    <span class="project-link project-link-current">
+                        You are viewing this project <i class="fas fa-check-circle"></i>
+                    </span>
                 </div>
             </article>
 
@@ -342,6 +413,58 @@ get_header();
             Want to work with us or just say hello? Message the whole
             team, or reach out to any of us directly.
         </p>
+
+
+            <!-- CONTACT FORM -->
+            <div class="contact-form-wrap">
+                <h3>Send Us a Message</h3>
+                <p>Fill out the form below and your message will be sent to our team email.</p>
+
+                <?php if ( isset( $_GET['contact'] ) ) : ?>
+                    <?php $contact_status = sanitize_key( wp_unslash( $_GET['contact'] ) ); ?>
+                    <?php if ( 'sent' === $contact_status ) : ?>
+                        <div class="contact-notice contact-notice-success" role="status">Thank you! Your message has been sent to the Tech Titans team.</div>
+                    <?php elseif ( 'failed' === $contact_status ) : ?>
+                        <div class="contact-notice contact-notice-error" role="alert">Sorry, your message could not be sent. Please try again later or email us directly.</div>
+                    <?php elseif ( 'invalid' === $contact_status ) : ?>
+                        <div class="contact-notice contact-notice-error" role="alert">Please complete all fields and enter a valid email address. Then try again.</div>
+                    <?php endif; ?>
+                <?php endif; ?>
+
+                <form class="techtitans-contact-form" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" method="post">
+                    <input type="hidden" name="action" value="techtitans_contact">
+                    <?php wp_nonce_field( 'techtitans_contact_submit', 'techtitans_contact_nonce' ); ?>
+
+                    <div class="contact-form-row">
+                        <label for="contact_name">Your name</label>
+                        <input type="text" id="contact_name" name="contact_name" autocomplete="name" maxlength="100" required>
+                    </div>
+
+                    <div class="contact-form-row">
+                        <label for="contact_email">Your email</label>
+                        <input type="email" id="contact_email" name="contact_email" autocomplete="email" maxlength="190" required>
+                    </div>
+
+                    <div class="contact-form-row">
+                        <label for="contact_subject">Subject</label>
+                        <input type="text" id="contact_subject" name="contact_subject" maxlength="150" required>
+                    </div>
+
+                    <div class="contact-form-row">
+                        <label for="contact_message">Message</label>
+                        <textarea id="contact_message" name="contact_message" rows="6" maxlength="5000" required></textarea>
+                    </div>
+
+                    <div class="contact-form-honeypot" aria-hidden="true">
+                        <label for="contact_website">Leave this field empty</label>
+                        <input type="text" id="contact_website" name="website" tabindex="-1" autocomplete="off">
+                    </div>
+
+                    <button type="submit" class="contact-submit-btn">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+            </div>
 
         <!-- TEAM CONTACT -->
         <div class="team-contact">
