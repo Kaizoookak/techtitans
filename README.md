@@ -17,10 +17,13 @@ Featured Projects
 A web and mobile-based project designed to support traffic enforcement and management operations.
 
 Live Project: https://ivory-gerbil-502781.hostingersite.com/login
+
 2. Smart Pechay Pest Detection and Automatic Pesticide Spraying System
 An ongoing IoT project using ESP32-based components to help detect possible pest presence and automate pesticide spraying.
+
 3. Tech Titans Portfolio Website
 A custom WordPress portfolio website developed to showcase our team's projects, skills, and capabilities.
+
 Technologies Used
 Technology	Purpose
 WordPress	Content management system
